@@ -36,23 +36,23 @@ import coil.request.ImageRequest
 import com.example.projeto06.R
 import com.example.projeto06.data.Hero
 
-private const val BASE_URL = "https://api.opendota.com"
+private const val BASE_URL = "https://api.opendota.com"  // val url
 
 @Composable
 fun HeroListScreen(
-    heroesViewModel: HeroesViewModel
+    heroesViewModel: HeroesViewModel          //recebe como parametro
 ) {
     val heroesList by heroesViewModel.heroList.observeAsState(listOf())
     HeroList(heroList = heroesList)
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class) //biblioteca experimental
 @Composable
 fun HeroList(
     heroList: List<Hero>
 ) {
     LazyVerticalGrid(
-        modifier = Modifier.background(Color.LightGray),
+        modifier = Modifier.background(Color.Yellow),
         cells = GridCells.Fixed(2)
     ){
         items(heroList){ hero ->
@@ -79,8 +79,8 @@ fun HeroEntry(
                     .data(BASE_URL+hero.img)
                     .crossfade(true)
                     .build(),
-                placeholder = painterResource(R.drawable.placeholder),
-                contentDescription = hero.localized_name,
+                placeholder = painterResource(R.drawable.pokemon),
+                contentDescription = hero.localized_name,  // nome do personagem
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -101,7 +101,7 @@ fun HeroEntry(
                 )
             )
             Text(
-                text = hero.localized_name,
+                text = hero.localized_name,  //nome do personagem
                 modifier = Modifier
                     .align(Alignment.BottomCenter),
                 style = MaterialTheme.typography.h5.copy(

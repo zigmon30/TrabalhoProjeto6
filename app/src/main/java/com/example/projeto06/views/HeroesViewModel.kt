@@ -26,7 +26,7 @@ class HeroesViewModel : ViewModel() {
                 _heroList.value = listResult
             }catch (e: Exception){
                 _heroList.value = null
-                Log.d("GetHeroes","${e.message}")
+                Log.d("Error","${e.message}")
             }
         }
     }
