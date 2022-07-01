@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
@@ -34,37 +33,40 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.projeto06.R
-import com.example.projeto06.data.Hero
+import com.example.projeto06.data.Personagens
 
-private const val BASE_URL = "https://api.opendota.com"  // val url
+private const val BASE_URL = "https://rf-naruto-api.herokuapp.com"  // val url
 
 @Composable
-fun HeroListScreen(
-    heroesViewModel: HeroesViewModel          //recebe como parametro
+fun PokemonListScreen(
+    pokemonsViewModel: PokemonsViewModel          //recebe como parametro
 ) {
-    val heroesList by heroesViewModel.heroList.observeAsState(listOf())
-    HeroList(heroList = heroesList)
+    val pokemonsList by pokemonsViewModel.pokemonList.observeAsState(listOf())
+    PokemonList(pokemonList = pokemonsList)
 }
 
 @OptIn(ExperimentalFoundationApi::class) //biblioteca experimental
 @Composable
-fun HeroList(
-    heroList: List<Hero>
+fun PokemonList(
+    pokemonList: List<Personagens>
 ) {
     LazyVerticalGrid(
         modifier = Modifier.background(Color.Yellow),
         cells = GridCells.Fixed(2)
     ){
-        items(heroList){ hero ->
-            HeroEntry(hero = hero)
+        items(pokemonList) { pokemon ->
+            PokemonEntry(pokemon = pokemon)
+
         }
     }
 }
 
 
+
 @Composable
-fun HeroEntry(
-    hero: Hero
+fun PokemonEntry(
+
+    pokemon: Personagens
 ){
     val density = LocalDensity.current.density
     val width = remember { mutableStateOf(0F)}
@@ -76,18 +78,18 @@ fun HeroEntry(
         Box(){
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(BASE_URL+hero.img)
+                    .data(BASE_URL+pokemon.picture)
                     .crossfade(true)
                     .build(),
                 placeholder = painterResource(R.drawable.pokemon),
-                contentDescription = hero.localized_name,  // nome do personagem
+                contentDescription = pokemon.name,  // nome do personagem
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RectangleShape)
                     .onGloballyPositioned {
-                        width.value = it.size.width/density
-                        height.value = it.size.height/density
+                        width.value = it.size.width / density
+                        height.value = it.size.height / density
                     }
             )
             Box(modifier = Modifier
@@ -101,7 +103,7 @@ fun HeroEntry(
                 )
             )
             Text(
-                text = hero.localized_name,  //nome do personagem
+                text = pokemon.name,  //nome do personagem
                 modifier = Modifier
                     .align(Alignment.BottomCenter),
                 style = MaterialTheme.typography.h5.copy(
