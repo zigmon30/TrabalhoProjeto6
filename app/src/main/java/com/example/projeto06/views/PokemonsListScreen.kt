@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.projeto06.R
-import com.example.projeto06.data.Personagens
+import com.example.projeto06.data.domain.Personagens
 
 private const val BASE_URL = "https://rf-naruto-api.herokuapp.com"  // val url
 

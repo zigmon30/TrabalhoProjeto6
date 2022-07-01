@@ -1,6 +1,6 @@
 package com.example.projeto06.network
 
-import com.example.projeto06.data.Personagens
+import com.example.projeto06.data.domain.Personagens
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

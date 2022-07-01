@@ -1,4 +1,4 @@
-package com.example.projeto06.data
+package com.example.projeto06.data.domain
 
 data class Personagens(
     val _id: String,

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.projeto06.data.Personagens
+import com.example.projeto06.data.domain.Personagens
 import com.example.projeto06.network.OpenPokemonApi
 import kotlinx.coroutines.launch
 
