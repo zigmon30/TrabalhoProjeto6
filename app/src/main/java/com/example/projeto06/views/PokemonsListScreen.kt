@@ -1,14 +1,14 @@
 package com.example.projeto06.views
 
+import android.app.Notification
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -37,6 +37,8 @@ import com.example.projeto06.data.domain.Personagens
 
 private const val BASE_URL = "https://rf-naruto-api.herokuapp.com"  // val url
 
+
+
 @Composable
 fun PokemonListScreen(
     pokemonsViewModel: PokemonsViewModel          //recebe como parametro
@@ -52,7 +54,7 @@ fun PokemonList(
 ) {
     LazyVerticalGrid(
         modifier = Modifier.background(Color.Yellow),
-        cells = GridCells.Fixed(2)
+        cells = GridCells.Fixed(1)
     ){
         items(pokemonList) { pokemon ->
             PokemonEntry(pokemon = pokemon)
@@ -81,7 +83,7 @@ fun PokemonEntry(
                     .data(BASE_URL+pokemon.picture)
                     .crossfade(true)
                     .build(),
-                placeholder = painterResource(R.drawable.pokemon),
+                placeholder = painterResource(R.drawable.naruto),
                 contentDescription = pokemon.name,  // nome do personagem
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
