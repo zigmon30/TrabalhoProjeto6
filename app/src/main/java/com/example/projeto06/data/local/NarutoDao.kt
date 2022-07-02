@@ -10,8 +10,8 @@ import com.example.projeto06.data.domain.Personagens
 @Dao
 interface NarutoDao {
 
-    @Query("SELECT * FROM localnaruto order by name")
-    fun getAllHeroes(): LiveData<List<LocalNaruto>>
+    @Query("SELECT * FROM Localnaruto order by name")
+    fun getAllPersonagens(): LiveData<List<LocalNaruto>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllPersonagens(personagens:  List<LocalNaruto>)

@@ -10,13 +10,18 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.projeto06.ui.theme.Projeto06Theme
+import com.example.projeto06.views.PersonagenVMFactory
 import com.example.projeto06.views.PokemonListScreen
-import com.example.projeto06.views.PokemonsViewModel
+import com.example.projeto06.views.PersonagensViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel by viewModels<PokemonsViewModel>()
+        val viewModel by viewModels<PersonagensViewModel>(){
+            PersonagenVMFactory(
+                (this.applicationContext as NarutoPersonagensApplication).repository
+            )
+        }
         setContent {
             Projeto06Theme {
                 // A surface container using the 'background' color from the theme
@@ -24,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Pokemons(viewModel)
+                    Personagen(viewModel)
                 }
             }
         }
@@ -32,8 +37,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Pokemons(
-    viewModel: PokemonsViewModel
+fun Personagen(
+    viewModel: PersonagensViewModel
 ) {
-    PokemonListScreen(pokemonsViewModel = viewModel)
+    PokemonListScreen(personagensViewModel = viewModel)
 }

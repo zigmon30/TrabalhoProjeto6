@@ -1,14 +1,11 @@
 package com.example.projeto06.views
 
-import android.app.Notification
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -41,22 +38,22 @@ private const val BASE_URL = "https://rf-naruto-api.herokuapp.com"  // val url
 
 @Composable
 fun PokemonListScreen(
-    pokemonsViewModel: PokemonsViewModel          //recebe como parametro
+    personagensViewModel: PersonagensViewModel          //recebe como parametro
 ) {
-    val pokemonsList by pokemonsViewModel.pokemonList.observeAsState(listOf())
-    PokemonList(pokemonList = pokemonsList)
+    val personagensList by personagensViewModel.personagens.observeAsState(listOf())
+    PersonagemList(personagemList = personagensList)
 }
 
 @OptIn(ExperimentalFoundationApi::class) //biblioteca experimental
 @Composable
-fun PokemonList(
-    pokemonList: List<Personagens>
+fun PersonagemList(
+    personagemList: List<Personagens>
 ) {
     LazyVerticalGrid(
         modifier = Modifier.background(Color.Yellow),
         cells = GridCells.Fixed(1)
     ){
-        items(pokemonList) { pokemon ->
+        items(personagemList) { pokemon ->
             PokemonEntry(pokemon = pokemon)
 
         }
