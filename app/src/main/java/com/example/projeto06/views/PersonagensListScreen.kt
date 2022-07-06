@@ -3,10 +3,7 @@ package com.example.projeto06.views
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
@@ -46,7 +43,6 @@ fun PersonagensListScreen(
     PersonagemList(personagemList = personagemList)
 
 }
-
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
