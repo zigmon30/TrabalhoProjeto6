@@ -7,18 +7,17 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.projeto06.ui.theme.Projeto06Theme
-import com.example.projeto06.views.HeroListScreen
-import com.example.projeto06.views.HeroesViewModel
+import com.example.projeto06.views.AtorListScreen
+import com.example.projeto06.views.AtoresViewModel
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel by viewModels<HeroesViewModel>()
+        val viewModel by viewModels<AtoresViewModel>()
         setContent {
             Projeto06Theme {
                 // A surface container using the 'background' color from the theme
@@ -26,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    DotaHeroes(viewModel)
+                    HpAtores(viewModel)
                 }
             }
         }
@@ -34,8 +33,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun DotaHeroes(
-    viewModel: HeroesViewModel
+fun HpAtores(
+    viewModel: AtoresViewModel
 ) {
-    HeroListScreen(heroesViewModel = viewModel)
+    AtorListScreen(atoresViewModel = viewModel)
 }

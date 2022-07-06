@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
@@ -34,49 +33,38 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.projeto06.R
-import com.example.projeto06.data.Hero
+import com.example.projeto06.data.Ator
 
-<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
-private const val BASE_URL = "https://api.opendota.com"  // val url
 
-@Composable
-fun HeroListScreen(
-    heroesViewModel: HeroesViewModel          //recebe como parametro
-=======
-private const val BASE_URL = "https://api.opendota.com"
+private const val BASE_URL = "http://hp-api.herokuapp.com/"
 
 @Composable
-fun HeroListScreen(
-    heroesViewModel: HeroesViewModel
->>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
+fun AtorListScreen(
+    atoresViewModel: AtoresViewModel
 ) {
-    val heroesList by heroesViewModel.heroList.observeAsState(listOf())
-    HeroList(heroList = heroesList)
+    val atoresList by atoresViewModel.atorList.observeAsState(listOf())
+    AtorList(atorList = atoresList)
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HeroList(
-    heroList: List<Hero>
+fun AtorList(
+    atorList: List<Ator>
 ) {
     LazyVerticalGrid(
-<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
-        modifier = Modifier.background(Color.Yellow),
-=======
         modifier = Modifier.background(Color.LightGray),
->>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
         cells = GridCells.Fixed(2)
     ){
-        items(heroList){ hero ->
-            HeroEntry(hero = hero)
+        items(atorList){ ator ->
+            AtorEntry(ator = ator )
         }
     }
 }
 
 
 @Composable
-fun HeroEntry(
-    hero: Hero
+fun AtorEntry(
+    ator: Ator
 ){
     val density = LocalDensity.current.density
     val width = remember { mutableStateOf(0F)}
@@ -88,23 +76,18 @@ fun HeroEntry(
         Box(){
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(BASE_URL+hero.img)
+                    .data(BASE_URL+ator.image)
                     .crossfade(true)
                     .build(),
-<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
-                placeholder = painterResource(R.drawable.pokemon),
-                contentDescription = hero.localized_name,  // nome do personagem
-=======
                 placeholder = painterResource(R.drawable.placeholder),
-                contentDescription = hero.localized_name,
->>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
+                contentDescription = ator.name,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RectangleShape)
                     .onGloballyPositioned {
-                        width.value = it.size.width/density
-                        height.value = it.size.height/density
+                        width.value = it.size.width / density
+                        height.value = it.size.height / density
                     }
             )
             Box(modifier = Modifier
@@ -118,11 +101,7 @@ fun HeroEntry(
                 )
             )
             Text(
-<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
-                text = hero.localized_name,  //nome do personagem
-=======
-                text = hero.localized_name,
->>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
+                text = ator.name,
                 modifier = Modifier
                     .align(Alignment.BottomCenter),
                 style = MaterialTheme.typography.h5.copy(
@@ -132,6 +111,3 @@ fun HeroEntry(
         }
     }
 }
-
-
-
