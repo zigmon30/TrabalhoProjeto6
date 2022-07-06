@@ -50,7 +50,7 @@ fun PersonagemList(
     personagemList: List<Personagem>,
 ) {
     LazyVerticalGrid(
-        modifier = Modifier.background(Color.LightGray),
+        modifier = Modifier.background(Color.Yellow),
         cells = GridCells.Fixed(1)
     ) {
         items(personagemList) { personagem ->
