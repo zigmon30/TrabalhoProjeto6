@@ -26,7 +26,11 @@ class HeroesViewModel : ViewModel() {
                 _heroList.value = listResult
             }catch (e: Exception){
                 _heroList.value = null
+<<<<<<< Updated upstream
                 Log.d("Error","${e.message}")
+=======
+                Log.d("GetHeroes","${e.message}")
+>>>>>>> Stashed changes
             }
         }
     }

@@ -36,23 +36,35 @@ import coil.request.ImageRequest
 import com.example.projeto06.R
 import com.example.projeto06.data.Hero
 
+<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
 private const val BASE_URL = "https://api.opendota.com"  // val url
 
 @Composable
 fun HeroListScreen(
     heroesViewModel: HeroesViewModel          //recebe como parametro
+=======
+private const val BASE_URL = "https://api.opendota.com"
+
+@Composable
+fun HeroListScreen(
+    heroesViewModel: HeroesViewModel
+>>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
 ) {
     val heroesList by heroesViewModel.heroList.observeAsState(listOf())
     HeroList(heroList = heroesList)
 }
 
-@OptIn(ExperimentalFoundationApi::class) //biblioteca experimental
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HeroList(
     heroList: List<Hero>
 ) {
     LazyVerticalGrid(
+<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
         modifier = Modifier.background(Color.Yellow),
+=======
+        modifier = Modifier.background(Color.LightGray),
+>>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
         cells = GridCells.Fixed(2)
     ){
         items(heroList){ hero ->
@@ -79,8 +91,13 @@ fun HeroEntry(
                     .data(BASE_URL+hero.img)
                     .crossfade(true)
                     .build(),
+<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
                 placeholder = painterResource(R.drawable.pokemon),
                 contentDescription = hero.localized_name,  // nome do personagem
+=======
+                placeholder = painterResource(R.drawable.placeholder),
+                contentDescription = hero.localized_name,
+>>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -101,7 +118,11 @@ fun HeroEntry(
                 )
             )
             Text(
+<<<<<<< Updated upstream:app/src/main/java/com/example/projeto06/views/HeroesListScreen.kt
                 text = hero.localized_name,  //nome do personagem
+=======
+                text = hero.localized_name,
+>>>>>>> Stashed changes:app/src/main/java/com/example/projeto06/views/PersonagensListScreen.kt
                 modifier = Modifier
                     .align(Alignment.BottomCenter),
                 style = MaterialTheme.typography.h5.copy(
