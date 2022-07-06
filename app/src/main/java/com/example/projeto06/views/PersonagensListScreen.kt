@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.projeto06.R
-import com.example.projeto06.data.Personagem
+import com.example.projeto06.data.domain.Personagem
 
 private const val BASE_URL = "https://rf-naruto-api.herokuapp.com/"
 
@@ -39,7 +39,7 @@ private const val BASE_URL = "https://rf-naruto-api.herokuapp.com/"
 fun PersonagensListScreen(
     personagensViewModel: PersonagensViewModel,
 ) {
-    val personagemList by personagensViewModel.personagemList.observeAsState(listOf())
+    val personagemList by personagensViewModel.personagens.observeAsState(listOf())
     PersonagemList(personagemList = personagemList)
 
 }

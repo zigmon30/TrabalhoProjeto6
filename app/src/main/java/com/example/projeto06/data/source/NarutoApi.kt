@@ -1,7 +1,7 @@
-package com.example.projeto06.network
+package com.example.projeto06.data.source
 
 
-import com.example.projeto06.data.Personagem
+import com.example.projeto06.data.domain.Personagem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -21,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 
 interface NarutoApiService {
     @GET("api/v1/shinobi")
-    suspend fun getPersonagens(): List<Personagem>
+    suspend fun getPersonagens(): List<SourcePersonagem>
 }
 
 object NarutoApi {
